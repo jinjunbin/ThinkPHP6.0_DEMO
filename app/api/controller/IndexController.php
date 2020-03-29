@@ -67,10 +67,10 @@ class IndexController extends ApiBaseController
 
 
         /*$config = [
-            'host' => '127.0.0.1',
-            'port' => '8123',
-            'username' => 'ck',
-            'password' => '123456'
+            'host' => env('clickhouse.host', '127.0.0.1'),
+            'port' => env('clickhouse.hostname', 'default'),
+            'username' => env('clickhouse.username', 'ck'),
+            'password' => env('clickhouse.password', '123456'),
         ];*/
         $db = CkEx::getInstance();
 

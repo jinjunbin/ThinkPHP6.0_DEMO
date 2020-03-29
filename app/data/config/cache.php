@@ -27,9 +27,9 @@ return [
         // 更多的缓存连接
         'redis' => [
             'type'      => 'redis',
-            'host'      => '127.0.0.1',
-            'port'      => '6379',
-            'password'  => '123456',
+            'host'      => env('redis.hostname', '127.0.0.1'),
+            'port'      => env('redis.hostport', '6379'),
+            'auth'      => env('redis.requirepass', '123456'),
         ],
     ],
 ];

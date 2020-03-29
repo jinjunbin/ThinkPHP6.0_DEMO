@@ -27,9 +27,9 @@ return [
         // 更多的缓存连接
         'redis' => [
             'master' => [
-                'host'   => '127.0.0.1',
-                'port'   => '6379',
-                'auth'   => '123456',
+                'host'   => env('redis.hostname', '127.0.0.1'),
+                'port'   => env('redis.hostport', '6379'),
+                'auth'   => env('redis.requirepass', '123456'),
             ],
 //            'slave' => [
 //                [
@@ -46,9 +46,9 @@ return [
         ],
         'redis_tp' => [
             'type'       => 'redis',
-            'host'       => '127.0.0.1',
-            'port'       => '6379',
-            'password'   => '123456',
+            'host'       => env('redistp.hostname', '127.0.0.1'),
+            'port'       => env('redistp.hostport', '6379'),
+            'password'   => env('redistp.requirepass', '123456'),
         ],
     ],
 ];
