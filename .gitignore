@@ -1,2 +1,6 @@
 .idea/
 /public/upload/image/
+.env/
+/config/cache.php/
+/app/api/config/cache.php/
+/app/data/config/cache.php/
