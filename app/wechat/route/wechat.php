@@ -8,5 +8,7 @@
 use think\facade\Route;
 
 //Banner
-Route::get(':version/hello', ':version.index/hello');   //http://tp6-mall.imooc.com/wechat/v1/hello
-Route::get('hello', 'index/hello');                     //http://tp6-mall.imooc.com/wechat/hello
+Route::get('hello/[:name]', 'index/hello');                     //http://tp6-mall.imooc.com/wechat/hello
+
+
+Route::get(':version/hello/[:name]', ':version.index/hello');   //http://tp6-mall.imooc.com/wechat/v1/hello
