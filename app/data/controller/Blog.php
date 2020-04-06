@@ -4,7 +4,7 @@ declare (strict_types = 1);
 namespace app\controller;
 
 use think\Request;
-use app\model\Blog;
+use app\model\Blog as BlogModel;
 use app\validate\Check;
 use think\exception\ValidateException;
 
@@ -20,7 +20,7 @@ class Blog
     public function index()
     {
         //halt('输出测试');
-        $list = Blog::where('create_time','<',time())->limit(3)->select();
+        $list = BlogModel::where('create_time','<',time())->limit(3)->select();
         echo $list->toJson() . "<br>";
         foreach ($list as $k => $v) {
             echo $v->title . "<br>";
@@ -36,7 +36,7 @@ class Blog
     public function create()
     {
         //
-        $blog = Blog::create([
+        $blog = BlogModel::create([
             'title'  =>  'thinkphp',
             'txt' =>  'thinkphp@qq.com'
         ]);
@@ -62,7 +62,7 @@ class Blog
                 'txt' => $txt,
             ]);
 
-            $blog = Blog::create([
+            $blog = BlogModel::create([
                 'title'  =>  $title,
                 'txt' =>  $txt,
             ]);
@@ -86,7 +86,7 @@ class Blog
     public function read($id)
     {
         //
-        $blog = Blog::findOrEmpty($id);
+        $blog = BlogModel::findOrEmpty($id);
         if (!$blog->isEmpty()) {
             echo $blog->title . "<br>";
         } else {
@@ -103,7 +103,7 @@ class Blog
     public function edit($id)
     {
         //
-        $blog = Blog::find($id);
+        $blog = BlogModel::find($id);
         $blog->title     = 'sdf';
         $blog->txt    = '111';
         $rst = $blog->save();
@@ -120,7 +120,7 @@ class Blog
     public function update(Request $request, $id)
     {
         //
-        $rst = Blog::update($request->param(), ['id' => $id], ['title','txt']);
+        $rst = BlogModel::update($request->param(), ['id' => $id], ['title','txt']);
         echo $rst;
     }
 
@@ -133,7 +133,7 @@ class Blog
     public function delete($id)
     {
         //
-        $blog = Blog::find($id);
+        $blog = BlogModel::find($id);
         $blog->delete();
     }
 }
