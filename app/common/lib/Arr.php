@@ -5,6 +5,7 @@
  * Date: 2020/2/25
  * Time: 18:45
  */
+
 namespace app\common\lib;
 
 class Arr
@@ -16,7 +17,7 @@ class Arr
      */
     public static function getTree($data)
     {
-        $items= [];
+        $items = [];
         foreach ($data as $v) {
             $v['category_id'] = $v['id'];
             unset($v['id']);
@@ -82,5 +83,13 @@ class Arr
         }
         array_multisort(array_column($result, $key), $sort, $result);
         return $result;
+    }
+
+    public static function fromArrayToModel($m, $array)
+    {
+        foreach ($array as $key => $value) {
+            $m[$key] = $value;
+        }
+        return $m;
     }
 }

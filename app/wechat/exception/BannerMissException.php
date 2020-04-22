@@ -13,6 +13,4 @@ class BannerMissException extends BaseException
     public $httpStatus  = 404;
     public $message     = 'global:your required resource are not found';
     public $status      = 10001;
-
-
 }

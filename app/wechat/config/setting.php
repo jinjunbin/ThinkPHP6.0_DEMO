@@ -6,5 +6,6 @@
  * Time: 下午 10:21
  */
  return [
-    'img_prefix' => 'http://tp6-mall.imooc.com/static/wechat/imgaes',
+     'img_prefix' => 'http://tp6-mall.imooc.com/static/wechat/imgaes',
+     'token_expire_in' => 7200,
  ];

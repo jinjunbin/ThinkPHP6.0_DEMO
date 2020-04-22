@@ -5,6 +5,7 @@
  * Date: 2020/1/17
  * Time: 14:11
  */
+
 namespace app\common\lib;
 
 class Str
@@ -18,7 +19,25 @@ class Str
     {
         // 生成 token
         $str = md5(uniqid(md5(microtime(true), true))); //生成一个不会重复的字符串
-        $token = sha1($str.$string); //加密
+        $token = sha1($str . $string); //加密
         return $token;
+    }
+
+    /**
+     * 32 个字符串自成一组随机字符串
+     * @param $length
+     * @return string|null
+     */
+    public static function getRandChar($length)
+    {
+        $str = null;
+        $strPol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+        $max = strlen($strPol) - 1;
+
+        for ($i = 0; $i < $length; $i++) {
+            $str .= $strPol[rand(0, $max)];
+        }
+
+        return $str;
     }
 }

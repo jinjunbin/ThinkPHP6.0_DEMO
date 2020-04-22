@@ -27,18 +27,18 @@ class BaseException extends Exception
      * 构造函数，接收一个关联数组
      * @param array $params 关联数组只应包含code、msg和errorCode，且不应该是空值
      */
-    public function __construct($params=[])
+    public function __construct($params = [])
     {
-        if(!is_array($params)){
+        if (!is_array($params)) {
             return;
         }
-        if(array_key_exists('httpStatus',$params)){
+        if (array_key_exists('httpStatus', $params)) {
             $this->httpStatus = $params['httpStatus'];
         }
-        if(array_key_exists('message',$params)){
+        if (array_key_exists('message', $params)) {
             $this->message = $params['message'];
         }
-        if(array_key_exists('status',$params)){
+        if (array_key_exists('status', $params)) {
             $this->status = $params['status'];
         }
     }
