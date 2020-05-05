@@ -73,7 +73,7 @@ class Product extends BaseModel
             ]
         )
             ->with('properties')
-            ->find($id);
+            ->find($id);//检查是否要改成findOrEmpty
         return $product;
     }
 

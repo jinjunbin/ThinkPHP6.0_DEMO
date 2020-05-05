@@ -114,7 +114,7 @@ class Product extends Base
         if ($product->isEmpty()) {
             throw new ProductException();
         }
-        return $product;
+        return Show::success($product);
     }
 
     public function createOne()
