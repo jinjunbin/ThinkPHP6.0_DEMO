@@ -15,9 +15,10 @@ use think\Controller;
 
 class Address extends Base
 {
-    protected $beforeActionList = [
+    // 前置方法在 tp6 中已失效
+    /*protected $beforeActionList = [
         'checkPrimaryScope' => ['only' => 'createOrUpdateAddress,getUserAddress']
-    ];
+    ];*/
     
     /**
      * 获取用户地址信息
@@ -26,6 +27,9 @@ class Address extends Base
      */
     public function getUserAddress()
     {
+        // 前置方法在 tp6 中已失效
+        self::checkPrimaryScope();
+
         $uid = Token::getCurrentUid();
         $userAddress = UserAddressModel::where('user_id', $uid)
             ->find();
@@ -43,8 +47,12 @@ class Address extends Base
      */
     public function createOrUpdateAddress()
     {
+        // 前置方法在 tp6 中已失效
+        self::checkPrimaryScope();
+
         $validate = new AddressNew();
         $validate->goCheck();
+
         // 根据 Token 来获取 uid
         // 根据 uid 来查找用户数据, 判断用户是否存在, 如果不存在抛出异常
         // 获取用户从客户端提交上来的地址信息

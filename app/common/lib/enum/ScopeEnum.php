@@ -12,8 +12,9 @@ namespace app\common\lib\enum;
  */
 class ScopeEnum
 {
+    // APP 用户的权限数值
     const USER = 16;
     
-    // 管理员是给CMS准备的权限
+    // 是给CMS准备的权限 (管理员)
     const SUPER = 32;
 }

@@ -4,8 +4,8 @@ namespace app\wechat\service;
 
 use app\common\lib\enum\ScopeEnum;
 use app\common\lib\Str;
-use app\lib\exception\ForbiddenException;
-use app\lib\exception\ParameterException;
+use app\wechat\exception\ForbiddenException;
+use app\wechat\exception\ParameterException;
 use app\wechat\exception\TokenException;
 use think\Exception;
 use think\facade\Cache;
@@ -36,8 +36,7 @@ class Token
         if ($scope) {
             if ($scope >= ScopeEnum::USER) {
                 return true;
-            }
-            else{
+            } else {
                 throw new ForbiddenException();
             }
         } else {
@@ -49,7 +48,7 @@ class Token
     public static function needExclusiveScope()
     {
         $scope = self::getCurrentTokenVar('scope');
-        if ($scope){
+        if ($scope) {
             if ($scope == ScopeEnum::USER) {
                 return true;
             } else {
