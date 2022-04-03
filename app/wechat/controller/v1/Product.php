@@ -11,7 +11,6 @@ use app\wechat\model\Product as ProductModel;
 use app\wechat\validate\Count;
 use app\wechat\validate\IDMustBePositiveInt;
 use app\wechat\validate\PagingParameter;
-use think\Collection;
 
 class Product extends Base
 {

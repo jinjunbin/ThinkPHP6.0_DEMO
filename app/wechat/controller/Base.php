@@ -7,14 +7,14 @@ use app\BaseController;
 
 class Base extends BaseController
 {
-    protected function checkExclusiveScope()
-    {
-        Token::needExclusiveScope();
-    }
-
     protected function checkPrimaryScope()
     {
         Token::needPrimaryScope();
+    }
+
+    protected function checkExclusiveScope()
+    {
+        Token::needExclusiveScope();
     }
 
     protected function checkSuperScope()

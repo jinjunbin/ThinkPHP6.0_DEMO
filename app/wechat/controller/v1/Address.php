@@ -33,7 +33,7 @@ class Address extends Base
         $uid = Token::getCurrentUid();
         $userAddress = UserAddressModel::where('user_id', $uid)
             ->find();
-        if(!$userAddress){
+        if (!$userAddress) {
             throw new UserException([
                'msg' => '用户地址不存在',
                 'errorCode' => 60001

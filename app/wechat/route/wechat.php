@@ -26,6 +26,7 @@ Route::post(':version/sample/test3', ':version.Sample/test3');
 
 //Banner
 //http://tp6-mall.imooc.com/wechat/v1/hello
+//http://tp6-mall.imooc.com/wechat/v1/banner/1?num=19&XDEBUG_SESSION_START=11867
 Route::get(':version/banner/:id', ':version.Banner/getBanner');
 Route::get('hello/[:name]', 'index/hello');
 
@@ -37,14 +38,17 @@ Route::get('hello/[:name]', 'index/hello');
 //    ':t_id/product/:p_id' => [':version.Theme/addThemeProduct']
 //]);
 
-Route::group(':version/theme', function ()
-{
-    Route::get('', ':version.Theme/getSimpleList');
-    Route::get('/:id', ':version.Theme/getComplexOne');
-    Route::post(':t_id/product/:p_id', ':version.Theme/addThemeProduct');
-    Route::delete(':t_id/product/:p_id', ':version.Theme/deleteThemeProduct');
-});
+//Route::group(':version/theme', function () {
+//    Route::get('', ':version.Theme/getSimpleList');
+//    Route::get('/:id', ':version.Theme/getComplexOne');
+//    Route::post(':t_id/product/:p_id', ':version.Theme/addThemeProduct');
+//    Route::delete(':t_id/product/:p_id', ':version.Theme/deleteThemeProduct');
+//});
 
+Route::get(':version/theme', ':version.Theme/getSimpleList');
+//http://tp6-mall.imooc.com/wechat/v1/theme?ids=1,2,3&XDEBUG_SESSION_START=16906
+Route::get(':version/theme/:id', ':version.Theme/getComplexOne');
+//http://tp6-mall.imooc.com/wechat/v1/theme/1?XDEBUG_SESSION_START=16906
 //Route::get(':version/theme', ':version.Theme/getThemes');
 //Route::post(':version/theme/:t_id/product/:p_id', ':version.Theme/addThemeProduct');
 //Route::delete(':version/theme/:t_id/product/:p_id', ':version.Theme/deleteThemeProduct');
@@ -54,8 +58,11 @@ Route::post(':version/product', ':version.Product/createOne');
 Route::delete(':version/product/:id', ':version.Product/deleteOne');
 Route::get(':version/product/by_category/paginate', ':version.Product/getByCategory');
 Route::get(':version/product/by_category', ':version.Product/getAllInCategory');
-Route::get(':version/product/:id', ':version.Product/getOne', [], ['id' => '\d+']);
+//http://tp6-mall.imooc.com/wechat/v1/product/by_category?id=3&XDEBUG_SESSION_START=16906
 Route::get(':version/product/recent', ':version.Product/getRecent');
+//http://tp6-mall.imooc.com/wechat/v1/product/recent?count=15&XDEBUG_SESSION_START=16906
+Route::get(':version/product/:id', ':version.Product/getOne', [], ['id' => '\d+']);
+//http://tp6-mall.imooc.com/wechat/v1/product/1?XDEBUG_SESSION_START=16906
 
 //Category
 Route::get(':version/category', ':version.Category/getCategories');
@@ -63,6 +70,7 @@ Route::get(':version/category', ':version.Category/getCategories');
 //Route::get(':version/category/:id', ':version.Category/getCategory',[], ['id'=>'\d+']);
 //Route::get(':version/category/:id/products', ':version.Category/getCategory',[], ['id'=>'\d+']);
 Route::get(':version/category/all', ':version.Category/getAllCategories');
+//http://tp6-mall.imooc.com/wechat/v1/category/all?XDEBUG_SESSION_START=16906
 
 //Token
 Route::post(':version/token/user', ':version.Token/getToken');

@@ -30,6 +30,7 @@ class Token
     //验证器验证只是token验证的一种方式
     //另外一种方式是使用行为拦截token，根本不让非法token
     //进入控制器
+    // 需要用户和 CMS 管理员都可以访问的权限
     public static function needPrimaryScope()
     {
         $scope = self::getCurrentTokenVar('scope');
@@ -44,7 +45,7 @@ class Token
         }
     }
 
-    // 用户专有权限
+    // 只有用户才能访问的接口权限
     public static function needExclusiveScope()
     {
         $scope = self::getCurrentTokenVar('scope');
